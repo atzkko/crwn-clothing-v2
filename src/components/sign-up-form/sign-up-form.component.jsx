@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import FormInput from "../form-input/form-input.component";
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../utils/firebase/firebase.utils";
 
 const defaultFormFields = {
@@ -50,20 +50,47 @@ const SignUpForm = () => {
         <div>
             <h1>Sign Up with your email and password</h1>
             <form onSubmit={handleSubmit}>
-                <label>Display Name</label>
-                <input type="text" onChange={handleChange} name="displayName" value={displayName} required />
-
-                <label>Email</label>
-                <input type="email" onChange={handleChange} name="email" value={email} required />
-
-                <label>Password</label>
-                <input type="password" onChange={handleChange} name="password" value={password} required />
-
-                <label>Confirm Password</label>
-                <input type="password" onChange={handleChange} name="confirmPassword" value={confirmPassword} required />
-
+                <FormInput
+                    label="Display Name"
+                    inputOptions={{
+                        type: "text",
+                        onChange: handleChange,
+                        name: "displayName",
+                        value: displayName,
+                        required: true
+                    }}
+                />
+                <FormInput
+                    label="Email"
+                    inputOptions={{
+                        type: "email",
+                        onChange: handleChange,
+                        name: "email",
+                        value: email,
+                        required: true
+                    }}
+                />
+                <FormInput
+                    label="Password"
+                    inputOptions={{
+                        type: "password",
+                        onChange: handleChange,
+                        name: "password",
+                        value: password,
+                        required: true
+                    }}
+                />
+                <FormInput
+                    label="Confirm Password"
+                    inputOptions={{
+                        type: "password",
+                        onChange: handleChange,
+                        name: "confirmPassword",
+                        value: confirmPassword,
+                        required: true
+                    }}
+                />
                 <button type="submit">Sign Up</button>
-
             </form>
         </div>
     )
